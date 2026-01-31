@@ -35,7 +35,7 @@
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
       dest: /app
-      remote_src: yesv
+      remote_src: yes
 
   - name: Install packages based on package.json.
     community.general.npm:
