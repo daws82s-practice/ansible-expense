@@ -4,6 +4,12 @@
   vars:
     mysql_root_password: ExpenseApp@1
   tasks:
+  - name: Install bottle for Python 3.9 specifically, using the 'pip3.9 executable
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      executable: pip3.9
+    loop:
+    - PyMySQL
   - name: Install MySQL Server
     ansible.builtin.dnf:
       name: mysql-server
