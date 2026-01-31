@@ -10,6 +10,8 @@
       executable: pip3.9
     loop:
     - PyMySQL
+    - cryptography
+
   - name: Install MySQL Server
     ansible.builtin.dnf:
       name: mysql-server
@@ -31,4 +33,8 @@
 
   - name: print output
     ansible.builtin.debug:
-      msg: "{{ mysql_info }}"
+      msg: "Mysql info: {{ mysql_info }}"
+
+  - name: setup root password
+    ansible.builtin.command: " mysql_secure_installation --set-root-pass {{ mysql_root_password }} "
+    when: mysql_info.failed is true
