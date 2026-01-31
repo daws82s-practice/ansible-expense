@@ -1,5 +1,6 @@
 - name: config frontend
   hosts:  web
+  connection: local
   become: yes
   tasks:
   - name: install nginx
