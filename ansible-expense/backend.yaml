@@ -37,7 +37,7 @@
       dest: /app
       remote_src: yes
 
-  - name: Install packages based on package.json.
+  - name: Install npm packages 
     community.general.npm:
       path: /app
 
@@ -60,7 +60,7 @@
       name: all
       login_user: root
       login_password: ExpenseApp@1
-      login_host: mysql.daws82s.online
+      login_host: mysql.deaws82s.online
       target: /app/schema/backend.sql
 
   - name: daemon reload and restart service
